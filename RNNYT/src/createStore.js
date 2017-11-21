@@ -1,6 +1,6 @@
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import createLogger from 'redux-logger';
+import {createLogger} from 'redux-logger';
 
 import newsFeedReducer from './reducers/newsFeedReducer';
 import searchTermReducer from './reducers/searchTermReducer';

@@ -30,7 +30,25 @@ export default class NewsFeed extends Component {
         this.onModalOpen = this.onModalOpen.bind(this);
         this.onModalClose = this.onModalClose.bind(this);
         this.renderRow = this.renderRow.bind(this);
+        this.refresh = this.refresh.bind(this);
     }
+
+    componentWillMount() {
+        this.refresh();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(nextProps.news)
+        });
+    }
+
+    refresh() {
+        if (this.props.loadNews) {
+            this.props.loadNews();
+        }
+    }
+
 
     renderRow(rowData, ...rest) {
         // console.log(rowData);
@@ -45,17 +63,20 @@ export default class NewsFeed extends Component {
             />
         );
     }
+
     onModalOpen(url) {
         this.setState({
             modalVisible: true,
             modalUrl: url
         });
     }
+
     onModalClose() {
         this.setState({
             modalVisible: false
         });
     }
+
     renderModal() {
         return (
             <Modal
@@ -72,7 +93,7 @@ export default class NewsFeed extends Component {
                     </TouchableOpacity>
                     <WebView
                         scalesPageToFit
-                        source={{ uri: this.state.modalUrl }}
+                        source={{uri: this.state.modalUrl}}
                     />
                 </View>
             </Modal>
@@ -96,32 +117,33 @@ export default class NewsFeed extends Component {
 
 NewsFeed.propTypes = {
     news: PropTypes.arrayOf(PropTypes.object),
-    listStyles: View.propTypes.style
+    listStyles: View.propTypes.style,
+    loadNews: PropTypes.func
 };
 
-NewsFeed.defaultProps = {
-    news: [
-        {
-            title: 'React Native',
-            imageUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-            description: 'Build Native Mobile Apps using JavaScript and React',
-            date: new Date(),
-            author: 'Facebook',
-            location: 'Menlo Park, California',
-            url: 'https://facebook.github.io/react-native'
-        },
-        {
-            title: 'Packt Publishing',
-            imageUrl: 'https://www.packtpub.com/sites/default/files/packt_logo.png',
-            description: 'Stay Relevant',
-            date: new Date(),
-            author: 'Packt Publishing',
-            location: 'Birmingham, UK',
-            url: 'https://www.packtpub.com/'
-        }
-
-    ]
-};
+// NewsFeed.defaultProps = {
+//     news: [
+//         {
+//             title: 'React Native',
+//             imageUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+//             description: 'Build Native Mobile Apps using JavaScript and React',
+//             date: new Date(),
+//             author: 'Facebook',
+//             location: 'Menlo Park, California',
+//             url: 'https://facebook.github.io/react-native'
+//         },
+//         {
+//             title: 'Packt Publishing',
+//             imageUrl: 'https://www.packtpub.com/sites/default/files/packt_logo.png',
+//             description: 'Stay Relevant',
+//             date: new Date(),
+//             author: 'Packt Publishing',
+//             location: 'Birmingham, UK',
+//             url: 'https://www.packtpub.com/'
+//         }
+//
+//     ]
+// };
 const styles = StyleSheet.create({
     newsItem: {
         marginBottom: 20

@@ -10,7 +10,8 @@ import {
 
 import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import Search from "./Search";
-import NewsFeed from "./NewsFeed";
+// import NewsFeed from "./NewsFeed";
+import NewsFeedContainer from '../containers/NewsFeedContainer';
 
 export default class  HomeScreen extends Component{
     showBookmarkAlert(ev) {
@@ -45,7 +46,7 @@ export default class  HomeScreen extends Component{
                     ></Search>
                 </TouchableOpacity>
                 <Text tabLabel='Tab #2'>favorite</Text>
-                <NewsFeed tabLabel='Tab #3'>project</NewsFeed>
+                <NewsFeedContainer tabLabel='Tab #3'>project</NewsFeedContainer>
             </ScrollableTabView>
 
         );

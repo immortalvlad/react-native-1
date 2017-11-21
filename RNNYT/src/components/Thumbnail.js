@@ -15,7 +15,7 @@ const Thumbnail = ({ url,titleText, accentColor, style }) => {
     const TitleComponent = <Title style={styles.title}>{titleText}</Title>;
     return (
         <View style={[styles.container, { borderColor: accentColor }, style]}>
-            {url.length > 0 ? (
+            {url.length > 0  ? (
                 <View>
                     <Image
                         style={{width: 50, height: 50}}
