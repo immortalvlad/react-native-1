@@ -1,16 +1,35 @@
+import { NavigationExperimental } from 'react-native';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import { loadNews } from '../actions/newsActions';
+import { addBookmark } from '../actions/bookmarkActions';
+import { openModal, closeModal } from '../actions/navigationActions';
+
 import NewsFeed from '../components/NewsFeed';
 // import { reshapeNewsData } from '../util/dataTransformations';
  import { allNewsSelector } from '../selectors/newsSelectors';
 
-const mapStateToProps = state => ({
-    news: allNewsSelector(state)
-});
+const { StateUtils } = NavigationExperimental;
+
+const mapStateToProps = (state) => {
+
+    const homeState = StateUtils.get(state.navigation, 'home');
+    const newsFeedState = homeState && StateUtils.get(homeState, 'newsFeed');
+    const modal = newsFeedState && newsFeedState.modal;
+
+    return {
+        news: allNewsSelector(state),
+        modal: modal || undefined
+    };
+};
 const mapDispatchToProps = dispatch => (
     bindActionCreators({
-        loadNews
+        load: loadNews,
+        onModalOpen: openModal,
+        onModalClose: closeModal,
+        addBookmark
     }, dispatch)
 );
 export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);

@@ -8,8 +8,9 @@ import {
     StatusBar
 } from 'react-native';
 
-import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
-import Search from "./Search";
+import ScrollableTabView, {DefaultTabBar } from 'react-native-scrollable-tab-view';
+// import Search from "./Search";
+import SearchContainer from '../containers/SearchContainer';
 // import NewsFeed from "./NewsFeed";
 import NewsFeedContainer from '../containers/NewsFeedContainer';
 
@@ -32,7 +33,7 @@ export default class  HomeScreen extends Component{
     }
 
     render(){
-
+        const { selectedTab, tab } = this.props;
         return (
             <ScrollableTabView
                 style={{marginTop: 20, }}
@@ -42,8 +43,7 @@ export default class  HomeScreen extends Component{
                 >
                 <TouchableOpacity tabLabel='Tab #1'
                 >
-                    <Search
-                    ></Search>
+                    <SearchContainer></SearchContainer>
                 </TouchableOpacity>
                 <Text tabLabel='Tab #2'>favorite</Text>
                 <NewsFeedContainer tabLabel='Tab #3'>project</NewsFeedContainer>
