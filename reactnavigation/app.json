@@ -1,4 +1,23 @@
 {
-  "name": "reactnavigation",
-  "displayName": "reactnavigation"
+  "expo": {
+    "name": "reactnavigation",
+    "description": "No description",
+    "slug": "reactnavigation",
+    "privacy": "public",
+    "sdkVersion": "23.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  },
+    "name": "reactnavigation",
+    "displayName": "reactnavigation"
 }

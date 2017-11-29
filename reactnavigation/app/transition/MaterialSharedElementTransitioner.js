@@ -146,7 +146,7 @@ class MaterialSharedElementTransitioner extends Component {
         };
     }
     _getSharedElementStyle(props, prevProps, itemFrom, itemTo) {
-        const { position, progress, navigationState: {index} } = props;
+        const { position, progress} = props;
 
         const getElementType = (item) => {
             const type = item.reactElement.type;

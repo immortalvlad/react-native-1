@@ -26,7 +26,7 @@ const ToolbarIos = (props) => {
 
 const Toolbar = (props) => {
     const Comp = (Platform.OS === 'android'
-        ? ''
+        ? ToolbarIos
         : ToolbarIos);
     return (
         <Comp

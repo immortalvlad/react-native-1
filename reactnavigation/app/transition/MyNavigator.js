@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 import type {NavigationRoute } from 'react-native';
 
 import PhotoGridScreen from './PhotoGridScreen';
-// import PhotoDetail from './PhotoDetail';
-// import PhotoMoreDetail from './PhotoMoreDetail';
-// import SettingsScreen from './SettingsScreen';
+import PhotoDetail from './PhotoDetail';
+import PhotoMoreDetail from './PhotoMoreDetail';
+import SettingsScreen from './SettingsScreen';
 import MaterialSharedElementTransitioner from './MaterialSharedElementTransitioner';
 import CrossFadeTransitioner from './CrossFadeTransitioner';
 import AndroidDefaultTransitioner from './AndroidDefaultTransitioner';
@@ -68,15 +68,15 @@ const router = StackRouter({
     PhotoGrid: {
         screen: PhotoGridScreen,
     },
-    // PhotoDetail: {
-    //     screen: PhotoDetail,
-    // },
-    // PhotoMoreDetail: {
-    //     screen: PhotoMoreDetail,
-    // },
-    // Settings: {
-    //     screen: SettingsScreen,
-    // }
+    PhotoDetail: {
+        screen: PhotoDetail,
+    },
+    PhotoMoreDetail: {
+        screen: PhotoMoreDetail,
+    },
+    Settings: {
+        screen: SettingsScreen,
+    }
 });
 
 const MyNavigator = createNavigationContainer(createNavigator(router)(TransitionerSwitcher));

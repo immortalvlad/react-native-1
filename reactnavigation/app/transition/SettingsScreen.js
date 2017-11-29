@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-
 import {
     View,
     Picker,
@@ -8,8 +7,8 @@ import {
     Slider,
     Text,
 } from 'react-native';
-
-import Icon from 'react-native-vector-icons/saterialIcons';
+import PropTypes from 'prop-types';
+// import Icon from 'react-native-vector-icons/saterialIcons';
 
 import Toolbar from './Toolbar';
 
@@ -41,8 +40,8 @@ const SettingsScreen = ({navigation}, {getActiveTransition, setActiveTransition}
 );
 
 SettingsScreen.contextTypes = {
-    setActiveTransition: React.PropTypes.func,
-    getActiveTransition: React.PropTypes.func,
+    setActiveTransition: PropTypes.func,
+    getActiveTransition: PropTypes.func,
 }
 
 const styles = StyleSheet.create({

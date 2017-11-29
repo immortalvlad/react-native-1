@@ -7,7 +7,7 @@ import {
     Alert,
 } from 'react-native';
 import PropTypes from 'prop-types';
-// import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import PhotoGrid from './PhotoGrid';
 import Toolbar from './Toolbar';

@@ -1,4 +1,5 @@
 {
+  "main": "node_modules/expo/AppEntry.js",
   "name": "reactnavigation",
   "version": "0.0.1",
   "private": true,
@@ -7,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@expo/samples": "2.1.1",
     "faker": "^3.1.0",
     "lodash": "^4.17.2",
     "prop-types": "^15.6.0",
@@ -14,12 +16,16 @@
     "react": "16.0.0",
     "react-native": "0.50.3",
     "react-native-vector-icons": "^3.0.0",
-    "react-navigation": "^1.0.0-beta.21"
+    "react-navigation": "^1.0.0-beta.21",
+    "expo": "^23.0.0",
+    "path-to-regexp": "^1.7.0"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "21.2.1",
+    "flow-bin": "^0.56.0",
+    "jest-expo": "^23.0.0",
     "react-test-renderer": "16.0.0"
   },
   "jest": {
